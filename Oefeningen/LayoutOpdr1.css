@@ -1,23 +1,32 @@
 .flex-container{
-    margin: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.btn{
+button{
     background-color: white;
     height: 35px;
+    border: 2px solid black;
 }
 
-.btn:hover{ 
-    background-color: gray;
+button:hover{ 
+    background-color:black;
     opacity: 1;
     transition: 0.3s;
+    color: white;
 }
 
 img{
     margin-right: auto;
     margin-left: auto;
     display: block;
+}
+
+.slidecontainer {
+    justify-content: center;
+    display: flex;
+    margin-top: 5%;
 }
