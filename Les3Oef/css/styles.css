@@ -223,6 +223,9 @@ main {
     grid-template-columns: 18% 18% 18% 18% 18%; /* four columns */
     grid-template-rows: auto; 
 }
+.main__thumbs:hover{
+    
+}
 
 /* ===========================================
     Form styles
