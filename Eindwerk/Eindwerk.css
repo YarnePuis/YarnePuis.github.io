@@ -1,0 +1,35 @@
+.Main{
+    background-color: beige;
+    text-align: center;
+}
+
+.explanation{
+    border: greenyellow solid 1vw;
+    margin: 5%;
+}
+
+p{
+    color: black;
+    font-size: 2vw;
+}
+
+button {
+    height: 6vw;
+    width: 12vw;
+    border: solid blue 0.3vw;
+    font-size: 2vw;
+    background-color: lightblue;
+    margin: 10px;
+    font-weight: bold;
+}
+
+button:hover{
+    padding-right: 25px;
+    transition: 0.5s;
+}
+
+button:active {
+    background-color: blue;
+    transform: translateY(4px);
+}
+  
