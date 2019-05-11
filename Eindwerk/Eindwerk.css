@@ -1,19 +1,28 @@
-.Main{
+/*Main*/
+.Main {
     background-color: beige;
     text-align: center;
 }
 
-.explanation{
+.explanation {
     border: greenyellow solid 1vw;
     margin: 5%;
 }
 
-p{
+p {
     color: black;
     font-size: 2vw;
 }
 
-button {
+.Choices{
+    border: dotted green 1vw;
+    margin: 35%;
+    margin-top: 10px;
+    margin-bottom: 0%;
+}
+
+/*Button decoration*/
+.ButtonChoice{
     height: 6vw;
     width: 12vw;
     border: solid blue 0.3vw;
@@ -23,13 +32,111 @@ button {
     font-weight: bold;
 }
 
-button:hover{
+.ButtonChoice:hover {
     padding-right: 25px;
     transition: 0.5s;
 }
 
-button:active {
+.ButtonChoice:active {
     background-color: blue;
     transform: translateY(4px);
 }
-  
+
+#Start{
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 0 0 0.3em rgba(0,0,0,0.03) inset, 0 0 0 0.1em rgba(0,0,0,0.15);
+    max-width: 100%;
+    padding: 2rem 2rem;
+    position: absolute;
+    text-align: center;
+    margin-left: 40%;
+    top: 300px;
+    width: 200px;
+    background-color: aqua;
+    font-size: 3.5vw;
+}
+
+.Start--Hide{
+    transform: translateY(-350%)
+}
+
+/*All levels*/
+.NormalLevels {
+    color: white;
+    margin-right: 91%;
+    text-align: center;
+    border: solid lightgray 0.3vw;
+    border-radius: 5px;
+    margin-right: 91.5%;
+    animation-name: LevelBorder;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes LevelBorder{
+    0% {color: yellow;}
+    25%{color: blueviolet;}
+    50%{color: aqua;}
+    75%{color: azure;}
+    100%{color: yellow;}
+}
+
+/*Clvl1*/
+#PauloCallebaut {
+    width: 2vw;
+    height: 2vw;
+    position: fixed;
+}
+
+#PreLvl1 {
+    background-image: url("/Foto's/BackgroundLvl1.jpg");
+    background-size: cover;
+}
+
+#PreLvl2{
+    background-image: url("/Foto's/BackgroundLvl2.jpg");
+    background-size: cover;
+}
+
+/*Frame that shows the teller*/
+#TellerFrame {
+    background-color: lightgrey;
+    width: 10px;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 25px;
+}
+
+  /*Frame that shows the tip*/
+#LevelCom{
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 0 0 0.3em rgba(0,0,0,0.03) inset, 0 0 0 0.1em rgba(0,0,0,0.15);
+    max-width: 100%;
+    padding: 2rem 2rem;
+    position: absolute;
+    text-align: center;
+    margin-left: 40%;
+    top: -50px;
+    width: 200px;
+}
+
+.LevelCom--Hide{
+    transform: translateY(-100%)
+}
+
+.NextLvl{
+    color: blue;
+    border: solid blueviolet 4px;
+    width: 4%;
+    height: 4%;
+    text-decoration: none;
+    font-size: 40px;
+    background-color: aqua;
+}
+
+.NextLvl:hover{
+    color: blueviolet;
+    border: solid blue 4px;
+    transition: 1s;
+    background-color: rgb(0, 255, 213);
+}

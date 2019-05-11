@@ -1,23 +1,43 @@
-(function (){
-    'use strict'
-    window.addEventListener('load', function(){
-        function Easy() {
+;;
+(function () {
+    'use strict';
 
-            //gives a name to the image
-            picture = document.getElementById('RedBall');
-          
-            spaceW = screen.height - picture.height;
-            spaceH = screen.width - picture.width;
-          
-            //set the interval to 750ms
-            setInterval(MoveIt, 775);
+    window.addEventListener('load', function () {
+
+
+        // //gives a name to the image
+        let photo = document.getElementById('PauloCallebaut');
+
+        let spaceW = screen.height - photo.height;
+        let spaceH = screen.width - photo.width;
+
+        document.getElementById('PressStart').addEventListener('click', function () {
+            document.getElementById('Start').classList.add('Start--Hide');
+            Easy();
+        });
+
+        function Easy() {
+            // //set the interval to 750ms
+            setInterval(MoveIt, 750);
         };
-        
+
         function MoveIt() {
 
             //random movement for the image
-            picture.style.top = Math.round(Math.random() * spaceW) + "px";
-            picture.style.left = Math.round(Math.random() * spaceH) + "px";
+            photo.style.top = Math.round(Math.random() * spaceW) + "px";
+            photo.style.left = Math.round(Math.random() * spaceH) + "px";
         };
+
+        let teller = 0;
+        document.getElementById('PauloCallebaut').addEventListener('click', function () {
+
+            if (teller == 4) {
+                document.getElementById('LevelCom').classList.remove('LevelCom--Hide');
+            } else {
+                teller++;
+                console.log(teller);
+                document.getElementById('Teller').innerHTML = teller;
+            }
+        });
     })
-})
+})();
