@@ -11,15 +11,19 @@
     //gives a name to the image
     let photo = document.getElementById('PauloCallebaut');
 
+    let auwtch = new Audio('../Eindwerk/audio/PauloAuwtch1.mp4');
+    auwtch.volume = 1.0;
 
+    let boom = new Audio('../Eindwerk/audio/Boom.mp3');
+    boom.volume = 1.0;
 
     function RandomGenerator() {
         document.getElementById('Start').classList.add('Start--Hide');
 
-        if (window.location.href == 'http://127.0.0.1:5500/Eindwerk/Clvl1.html') {
+        if (window.location.href === "http://127.0.0.1:5500/Eindwerk/Clvl1.html") {
             //The interval will set to 1.5s & the random image changer to 20% 
             setInterval(function () {
-                MoveIt(0.2)
+                MoveIt(0.5)
             }, 1300);
         } else if (window.location.href == 'http://127.0.0.1:5500/Eindwerk/Clvl2.html') {
             //The interval will set to 900ms & the random image changer to 35%
@@ -45,19 +49,17 @@
 
         if (Math.random() <= chance) {
 
-            photo.src = '/Eindwerk/fotos/Bom.png';
+            photo.src = '../Eindwerk/fotos/Bom.png';
         } else {
-            photo.src = "/Eindwerk/fotos/PauloCallebaut.jpeg";
+            photo.src = "../Eindwerk/fotos/PauloCallebaut.jpeg";
         }
     };
 
-    function TellerDown() {
+    function ScoreSec() {
 
-        //When press on the Bomb picture, your score will decrease by 100
-        document.getElementById('PauloCallebaut').addEventListener('click', function () {
-
-
-        });
+        score--;
+        document.getElementById('ScoreBoard').innerHTML = score;
+        
     }
 
     window.addEventListener('load', function () {
@@ -67,9 +69,7 @@
             photo.classList.remove('hidden');
             RandomGenerator();
 
-            //Background Music
-            let backgroundMusic = new Audio('../Eindwerk/audio/BackgroundMusic.mp3');
-            backgroundMusic.play();
+            setInterval(ScoreSec, 1000);
 
             console.log(score);
         });
@@ -77,24 +77,30 @@
         document.getElementById('PauloCallebaut').addEventListener('click', function () {
 
             if (teller === 4) { //When Teller is 5, You can go to the next level.
+
+                auwtch.play();
+
                 document.getElementById('LevelCom').classList.remove('LevelCom--Hide');
                 teller++;
                 document.getElementById('Teller').innerHTML = teller;
-            } else if (photo.getAttribute('src') === '../fotos/Bom.png') { // when te source of the image is a bomb, your score will decrease by 100
-                
+            } else if (photo.getAttribute('src') === '../Eindwerk/fotos/Bom.png') { // when te source of the image is a bomb, your score will decrease by 100
+
+                //Play the boom sound
+                boom.play();
+
                 score -= 100;
-                console.log(score);
+                document.getElementById('ScoreBoard').innerHTML = score;
             } else {
+
+                score += 20;
+                document.getElementById('ScoreBoard').innerHTML = score;
+
                 //When pressed on the picture, a sound will appear.
-                let auwtch = new Audio('./Eindwerk/audio/Auwtch.mp3');
                 auwtch.play();
 
                 teller++;
                 document.getElementById('Teller').innerHTML = teller;
             }
         });
-
-
-        
     });
 })();

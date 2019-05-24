@@ -14,7 +14,7 @@ p {
     font-size: 2vw;
 }
 
-.Choices{
+.Comp{
     border: dotted green 1vw;
     margin: 35%;
     margin-top: 10px;
@@ -22,7 +22,7 @@ p {
 }
 
 /*Button decoration*/
-.ButtonChoice{
+#ButtonComp{
     height: 6vw;
     width: 12vw;
     border: solid blue 0.3vw;
@@ -32,7 +32,7 @@ p {
     font-weight: bold;
 }
 
-.ButtonChoice:hover {
+#ButtonComp:hover {
     padding-right: 25px;
     transition: 0.5s;
 }
@@ -114,6 +114,13 @@ p {
     border: 2px solid black;
     padding: 20px;
     font-size: 25px;
+}
+
+#ScoreBoard{
+    width: 9vw;
+    height: 4vw;
+    border: solid 3px grey;
+    text-align: center;
 }
 
   /*Frame that shows the tip*/
