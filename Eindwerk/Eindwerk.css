@@ -57,7 +57,7 @@ p {
 }
 
 .Start--Hide{
-    transform: translateY(-350%)
+    transform: translateY(-750%)
 }
 
 /*All levels*/
@@ -89,13 +89,22 @@ p {
 }
 
 #PreLvl1 {
-    background-image: url("/Foto's/BackgroundLvl1.jpg");
+    background-image: url("/Eindwerk/fotos/BackgroundLvl1.jpg");
     background-size: cover;
 }
 
 #PreLvl2{
-    background-image: url("/Foto's/BackgroundLvl2.jpg");
+    background-image: url("/Eindwerk/fotos/BackgroundLvl2.jpg");
     background-size: cover;
+}
+
+#PreLvl3{
+    background-image: url("./fotos/BackgroundLvl3.jpg");
+    background-size: cover;
+}
+
+.hidden{
+    opacity: 0;
 }
 
 /*Frame that shows the teller*/
