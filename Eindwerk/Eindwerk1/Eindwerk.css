@@ -1,0 +1,141 @@
+.Main {
+    background-color: beige;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.Explanation{
+    border: 1vw solid gray;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.LetsStart {
+    border: 1vw dotted grey;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 10%;
+}
+
+#ButtonGo{
+    height: 6vw;
+    width: 12vw;
+    border: solid blue 0.3vw;
+    font-size: 2vw;
+    background-color: lightblue;
+    margin: 10px;
+    font-weight: bold;
+}
+
+#ButtonGo:hover {
+    padding-right: 25px;
+    transition: 0.5s;
+}
+
+/*Levels*/
+.NormalLevels {
+    color: white;
+    margin-right: 91%;
+    text-align: center;
+    border: solid lightgray 0.3vw;
+    border-radius: 5px;
+    margin-right: 91.5%;
+    animation-name: LevelBorder;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes LevelBorder{
+    0% {color: yellow;}
+    25%{color: blueviolet;}
+    50%{color: aqua;}
+    75%{color: azure;}
+    100%{color: yellow;}
+}
+
+#Background{
+    background-image: url("../Eindwerk1/fotos/BackgroundLvl1.jpg");
+    background-size: cover;
+}
+
+#PauloCallebaut {
+    width: 2vw;
+    height: 2vw;
+    position: fixed;
+}
+
+.hidden{
+    opacity: 0;
+    display: none;
+}
+
+/*TellerFrame to see how many times you clicked on the pic*/
+#TellerFrame {
+    background-color: lightgrey;
+    width: 10px;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 25px;
+}
+
+/*Scoreboard to keep score*/
+#ScoreBoard{
+    width: 9vw;
+    height: 4vw;
+    border: solid 3px grey;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+
+/*A button to press start*/
+#Start{
+    max-width: 100%;
+    padding: 2rem 2rem;
+    position: absolute;
+    text-align: center;
+    margin-left: 40%;
+    top: 300px;
+    width: 200px;
+    background-color: black;
+    font-size: 3.5vw;
+    color: white;
+    font-weight: bold;
+    border-radius: 100px;
+}
+
+#LevelBoard{
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 0 0 0.3em rgba(0,0,0,0.03) inset, 0 0 0 0.1em rgba(0,0,0,0.15);
+    max-width: 100%;
+    padding: 2rem 2rem;
+    position: absolute;
+    text-align: center;
+    margin-left: 40%;
+    top: -50px;
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#NextLvl{
+    color: blue;
+    border: solid blueviolet 4px;
+    width: 4%;
+    height: 4%;
+    text-decoration: none;
+    font-size: 40px;
+    background-color: aqua;
+}
+
+#NextLvl:hover{
+    color: blueviolet;
+    border: solid blue 4px;
+    transition: 1s;
+    background-color: rgb(0, 255, 213);
+}

@@ -37,7 +37,7 @@ p {
     transition: 0.5s;
 }
 
-.ButtonChoice:active {
+.ButtonComp:active {
     background-color: blue;
     transform: translateY(4px);
 }
@@ -115,7 +115,7 @@ p {
     padding: 20px;
     font-size: 25px;
 }
-
+/*Scoreboard to keep score*/
 #ScoreBoard{
     width: 9vw;
     height: 4vw;
@@ -123,7 +123,6 @@ p {
     text-align: center;
 }
 
-  /*Frame that shows the tip*/
 #LevelCom{
     background: rgba(255,255,255,0.9);
     box-shadow: 0 0 0 0.3em rgba(0,0,0,0.03) inset, 0 0 0 0.1em rgba(0,0,0,0.15);
@@ -140,7 +139,7 @@ p {
     transform: translateY(-100%)
 }
 
-.NextLvl{
+#NextLvl{
     color: blue;
     border: solid blueviolet 4px;
     width: 4%;
@@ -150,7 +149,7 @@ p {
     background-color: aqua;
 }
 
-.NextLvl:hover{
+#NextLvl:hover{
     color: blueviolet;
     border: solid blue 4px;
     transition: 1s;

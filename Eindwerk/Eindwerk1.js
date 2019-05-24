@@ -17,19 +17,31 @@
     let boom = new Audio('../Eindwerk/audio/Boom.mp3');
     boom.volume = 1.0;
 
-    function RandomGenerator() {
-        document.getElementById('Start').classList.add('Start--Hide');
+    let level = 1;
 
-        if (window.location.href === "http://127.0.0.1:5500/Eindwerk/Clvl1.html") {
+    function RandomGenerator() {
+        
+
+        if (level === 1) {
+
+
             //The interval will set to 1.5s & the random image changer to 20% 
             setInterval(function () {
                 MoveIt(0.5)
-            }, 1300);
-        } else if (window.location.href == 'http://127.0.0.1:5500/Eindwerk/Clvl2.html') {
+            }, 13000);
+            level+=1;
+            document.getElementById('Start').classList.add('Start--Hide');
+            console.log(level);
+            lvl2();
+            
+        } else if (level === 2) {
+                
+            document.getElementById('Start').classList.remove('Start--Hide');
             //The interval will set to 900ms & the random image changer to 35%
             setInterval(function () {
                 MoveIt(0.35)
             }, 9000);
+            level+=1;
         } else {
             //The interval will set tot 500ms & the random image changer to 50%
             setInterval(function () {
@@ -37,6 +49,21 @@
             }, 650);
         }
     };
+
+    let background = document.getElementById('Prelvl1');
+
+    function lvl2() {
+
+        document.getElementById('NextLvl').addEventListener('click', function () {
+
+        document.body.style.backgroundImage = "Url('fotos/BackgroundLvl2.jpg')";
+        document.getElementById('LevelCom').classList.add('hidden');
+        RandomGenerator();
+        console.log('background 2');
+
+    })
+        
+    }
 
     function MoveIt(chance) {
 
@@ -68,6 +95,7 @@
 
             photo.classList.remove('hidden');
             RandomGenerator();
+            
 
             setInterval(ScoreSec, 1000);
 
