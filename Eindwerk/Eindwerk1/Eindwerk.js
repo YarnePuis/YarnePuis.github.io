@@ -23,7 +23,7 @@
         document.body.style.backgroundImage = "Url('../Eindwerk1/fotos/BackgroundLvl2.jpg')";
         document.getElementById('NextLevels').innerHTML = 'Level 2';
 
-        clearInterval(MoveIt(), 0);
+        
     }
 
     function Level3() {
@@ -69,6 +69,7 @@
                 document.getElementById('Teller').innerHTML = teller;
 
                 teller = 0;
+
             } else if (photo.getAttribute('src') === '../Eindwerk1/fotos/Bom.png') { // when te source of the image is a bomb, your score will decrease by 100
 
                 //Play the boom sound
@@ -90,6 +91,37 @@
         })
     };
 
+    function interval () {
+
+        let interval = null;
+        switch (level) {
+            case 1: 
+                interval = setInterval(function () {
+                    MoveIt(0.2)
+                }, 1300);
+
+                console.log(level);
+                break;
+            case 2: 
+            clearInterval(interval);
+                Level2();
+
+                interval = setInterval(function () {
+                    MoveIt(0.35)}, 1000
+                );
+                console.log(level);
+                console.log('lvl2');
+                break;
+            case 3:
+                clearInterval(interval);
+                Level3();
+
+                interval = setInterval(function () {
+                    MoveIt(0.2)}, 13000
+                );
+                break;
+        }
+
     function furtherLevel () {
 
         document.getElementById('LevelBoard').addEventListener('click', function () {
@@ -101,46 +133,20 @@
     window.addEventListener('load', function () {
 
         Teller();
+        /*every second, your score will drop*/
         setInterval(ScoreSec, 1000);
 
         document.getElementById('Start').addEventListener('click', function () {
 
-            level+=1;
+            level++;
+            console.log(level);
 
             document.getElementById('Start').classList.add('hidden');
-            document.getElementById('PauloCallebaut').classList.remove('hidden');
-            
-            /*every second, your score will drop*/
-            
-
-            switch (level) {
-                case 1:
-                    setInterval(function () {
-                        MoveIt(0.2)}, 1300
-                    )
-                    console.log('lvl1');
-                    break;
-                case 2: 
-
-                    Level2();
-
-                    setInterval(function () {
-                        MoveIt(0.35)}, 1000
-                    )
-                    console.log(level);
-                    console.log('lvl2');
-                    break;
-                case 3:
-
-                    Level3();
-
-                    setInterval(function () {
-                        MoveIt(0.2)}, 1300
-                    )
-                    break;
-            }
-
+            document.getElementById('PauloCallebaut').classList.remove('hidden');   
+             
+            interval();
             furtherLevel();
+            
         });
     });
 
