@@ -121,6 +121,7 @@
                 );
                 break;
         }
+    }
 
     function furtherLevel () {
 
