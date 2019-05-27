@@ -3,7 +3,7 @@
     'use strict';
 
     /*The global score */
-    let score = 500;
+    let score = 50;
 
     //A teller to count
      let teller = 0;
@@ -30,6 +30,39 @@
         document.body.style.backgroundImage = "Url('../Eindwerk1/fotos/BackgroundLvl3.jpg')";
         document.getElementById('NextLevels').innerHTML = 'Level 3';
     }
+    
+    function EndlessLevel() {
+
+        document.body.style.backgroundImage = "Url('../Eindwerk1/fotos/BackgroundEndless.jpg')";
+        document.getElementById('NextLevels').innerHTML = 'Endless Level';
+        document.getElementById('ScoreBoard').style.color = 'white'
+
+        document.getElementById('LevelBoard').classList.add('hidden');
+        document.getElementById('EndlessBoard').classList.remove('hidden');
+
+        document.getElementById('EndlessLvl').addEventListener('click', function () {
+            document.getElementById('EndlessBoard').classList.add('hidden');
+            setInterval(function () {
+                MoveIt(0)
+            }, 13000);
+
+            document.getElementById('TellerFrame').classList.add('hidden');
+            teller = 6;
+            console.log(teller);
+        });
+
+    }
+
+    function localStorage () {
+        if (typeof(Storage) !== "undefined") {
+            
+            localStorage.setItem("HighScore", teller);
+            
+            document.getElementById("highScoreStorage").innerHTML = localStorage.getItem("HighScore");
+          } else {
+            document.getElementById("highScoreStorage").innerHTML = "Sorry, your browser does not supp localStorage.";
+          }
+    }
 
     function MoveIt(chance) {
 
@@ -48,11 +81,20 @@
         }
     };
 
+    let scoreInterval = setInterval(ScoreSec, 1000);
     /*function for the score*/
     function ScoreSec() {
 
         document.getElementById('ScoreBoard').innerHTML = score;
         score--;
+
+        //when score is 0, game over.
+        if (score <= 0) {
+            document.getElementById('GameOver').classList.remove('hidden');
+            clearInterval(scoreInterval);
+            
+            document.getElementById('PauloCallebaut').classList.add('hidden');
+        }
         
     }
 
@@ -69,6 +111,7 @@
                 document.getElementById('Teller').innerHTML = teller;
 
                 teller = 0;
+                document.getElementById('PauloCallebaut').classList.add('hidden');
 
             } else if (photo.getAttribute('src') === '../Eindwerk1/fotos/Bom.png') { // when te source of the image is a bomb, your score will decrease by 100
 
@@ -79,7 +122,7 @@
                 document.getElementById('ScoreBoard').innerHTML = score;
             } else {
 
-                score += 20;
+                //score += 20;
                 document.getElementById('ScoreBoard').innerHTML = score;
 
                 //When pressed on the picture, a sound will appear.
@@ -87,18 +130,21 @@
 
                 teller++;
                 document.getElementById('Teller').innerHTML = teller;
+                console.log(teller);
             }
         })
     };
 
-    function interval () {
+    let interval = null;
 
-        let interval = null;
+    function intervals () {
+
+    
         switch (level) {
             case 1: 
                 interval = setInterval(function () {
                     MoveIt(0.2)
-                }, 1300);
+                }, 13000);
 
                 console.log(level);
                 break;
@@ -107,10 +153,8 @@
                 Level2();
 
                 interval = setInterval(function () {
-                    MoveIt(0.35)}, 1000
+                    MoveIt(0.35)}, 10000
                 );
-                console.log(level);
-                console.log('lvl2');
                 break;
             case 3:
                 clearInterval(interval);
@@ -120,6 +164,11 @@
                     MoveIt(0.2)}, 13000
                 );
                 break;
+            case 4:
+                clearInterval(interval);
+
+                console.log(level);
+                EndlessLevel();
         }
     }
 
@@ -135,7 +184,7 @@
 
         Teller();
         /*every second, your score will drop*/
-        setInterval(ScoreSec, 1000);
+        setInterval(scoreInterval);
 
         document.getElementById('Start').addEventListener('click', function () {
 
@@ -145,9 +194,10 @@
             document.getElementById('Start').classList.add('hidden');
             document.getElementById('PauloCallebaut').classList.remove('hidden');   
              
-            interval();
+            intervals();
             furtherLevel();
-            
+            localStorage();
+
         });
     });
 
