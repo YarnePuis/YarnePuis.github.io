@@ -3,7 +3,7 @@
     'use strict';
 
     /*The global score */
-    let score = 50;
+    let score = 20;
 
     //A teller to count
      let teller = 0;
@@ -33,6 +33,7 @@
     
     function EndlessLevel() {
 
+        
         document.body.style.backgroundImage = "Url('../Eindwerk1/fotos/BackgroundEndless.jpg')";
         document.getElementById('NextLevels').innerHTML = 'Endless Level';
         document.getElementById('ScoreBoard').style.color = 'white'
@@ -46,25 +47,17 @@
                 MoveIt(0)
             }, 13000);
 
-            document.getElementById('TellerFrame').classList.add('hidden');
-            teller = 6;
-            console.log(teller);
+        document.getElementById('TellerFrame').classList.add('hidden');
+        document.getElementById('EndlessScore').classList.remove('hidden');
+        teller = 6;
+        console.log(teller);
+
         });
 
     }
 
-    function localStorage () {
-        if (typeof(Storage) !== "undefined") {
-            
-            localStorage.setItem("HighScore", teller);
-            
-            document.getElementById("highScoreStorage").innerHTML = localStorage.getItem("HighScore");
-          } else {
-            document.getElementById("highScoreStorage").innerHTML = "Sorry, your browser does not supp localStorage.";
-          }
-    }
-
     function MoveIt(chance) {
+        //Deze code tot de * heb ik gevonden op het internet maar de exacte bron vindt ik niet meer terug
 
         let spaceW = screen.height - photo.height;
         let spaceH = screen.width - photo.width;
@@ -72,6 +65,7 @@
         //random movement for the image
         photo.style.top = Math.round(Math.random() * spaceW) + "px";
         photo.style.left = Math.round(Math.random() * spaceH) + "px";
+        //*
 
         if (Math.random() <= chance) {
             //when random is under or equal to 20%, the image will change to a bomb.
@@ -82,7 +76,7 @@
     };
 
     let scoreInterval = setInterval(ScoreSec, 1000);
-    /*function for the score*/
+    //function for the score
     function ScoreSec() {
 
         document.getElementById('ScoreBoard').innerHTML = score;
@@ -94,6 +88,8 @@
             clearInterval(scoreInterval);
             
             document.getElementById('PauloCallebaut').classList.add('hidden');
+            document.getElementById('yourScore').innerHTML = teller;
+            
         }
         
     }
@@ -130,7 +126,14 @@
 
                 teller++;
                 document.getElementById('Teller').innerHTML = teller;
-                console.log(teller);
+
+                let dir = document.getElementById('EndlessScore'),endGameScore;
+
+                localStorage.setItem('endGameScore', teller);
+                endGameScore = localStorage.getItem('endGameScore');
+                dir.innerHTML = endGameScore;
+
+                localStorage.removeItem('endGameScore', teller);
             }
         })
     };
@@ -182,6 +185,8 @@
 
     window.addEventListener('load', function () {
 
+
+
         Teller();
         /*every second, your score will drop*/
         setInterval(scoreInterval);
@@ -196,7 +201,7 @@
              
             intervals();
             furtherLevel();
-            localStorage();
+
 
         });
     });
